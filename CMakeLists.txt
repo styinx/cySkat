@@ -19,12 +19,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${BIN_PATH}")
 #
 
 set(GCC_COMPILE_FLAGS "-Wall -Wextra -ansi -pedantic")
+#set(GCC_COMPILE_FLAGS "-Wall -Wextra -ansi -pedantic -O3")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}")
 
 #set(CMAKE_BUILD_TYPE RELEASE)
 
 include_directories(src)
+include_directories(../Cyanide/code/include)
+link_directories(../Cyanide/build/lib)
 
 set(SOURCES
     src/structures/Card.hpp
@@ -35,8 +38,13 @@ set(SOURCES
     src/structures/Dealer.cpp
     src/structures/Hand.hpp
     src/structures/Hand.cpp
-    src/game/Game.cpp src/game/Game.hpp src/game/Player.cpp src/game/Player.hpp)
+    src/structures/Table.hpp
+    src/structures/Table.cpp
+    src/game/Game.cpp
+    src/game/Game.hpp
+    src/game/Player.cpp
+    src/game/Player.hpp)
 
 add_executable(cySkat src/main.cpp ${SOURCES})
 
-#target_link_libraries()
+target_link_libraries(cySkat cygui cyinput cymath cysystem cyutil cyvideo)

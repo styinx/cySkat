@@ -55,6 +55,9 @@ namespace cyskat
     private:
         Hand        m_hand;
         PLAYER_TYPE m_type;
+
+    public:
+        Hand& hand();
     };
 
     class AI : public Player

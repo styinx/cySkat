@@ -12,19 +12,13 @@ namespace cyskat
     class Deck
     {
     private:
-        static Deck s_deck;
-
-        Deck();
-
-    public:
         Vector<Card> m_cards;
 
-        void init();
-
     public:
-        static Deck& getInstance();
+        Deck();
         virtual ~Deck() = default;
 
+        void         init();
         Uint8        size() const;
         Vector<Card> give(Uint8 cards = 1);
 

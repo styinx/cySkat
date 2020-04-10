@@ -2,18 +2,9 @@
 
 namespace cyskat
 {
-
-    Deck Deck::s_deck = Deck();
-
     Deck::Deck()
     {
-        Deck::s_deck = *this;
         init();
-    }
-
-    Deck& Deck::getInstance()
-    {
-        return Deck::s_deck;
     }
 
     void Deck::init()
